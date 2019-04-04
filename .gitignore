@@ -1,0 +1,5 @@
+/venv
+/podexplorer/podcasts/__pycache__/
+/podexplorer/podcasts/migrations/
+podexplorer/podexplorer/__pycache__/
+podexplorer/db.sqlite3
