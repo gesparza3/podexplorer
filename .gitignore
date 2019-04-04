@@ -3,3 +3,7 @@
 /podexplorer/podcasts/migrations/
 podexplorer/podexplorer/__pycache__/
 podexplorer/db.sqlite3
+/node_modules/
+/podexplorer/podexplorer/__pycache__/
+/podexplorer/frontend/__pycache__/
+/podexplorer/frontend/migrations/
