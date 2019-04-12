@@ -6,9 +6,9 @@ import Form from "./Form";
 
 const App = () => (
   <React.Fragment>
-    <DataProvider endpoint="api/podcast/"
+    <DataProvider endpoint="api/podcasts/"
                   render={data => <Table data={data} />} />
-    <Form endpoint="api/podcast/" />
+    <Form endpoint="api/podcasts/" />
 
   </React.Fragment>
 );
