@@ -4,8 +4,17 @@ from rest_framework.response import Response
 from knox.models import AuthToken
 
 from .serializers import (CreateUserSerializer, UserSerializer,
-                           LoginUserSerializer)
+                           LoginUserSerializer, PodcastSerializer)
 
+class PodcastViewSet(viewsets.ModelViewSet):
+    permission_classes = [permissions.IsAuthenticated, ]
+    serializer_class = PodcastSerializer
+
+    def get_queryset(self):
+        return self.request.user.podcasts.all()
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
 class RegistrationAPI(generics.GenericAPIView):
     serializer_class = CreateUserSerializer

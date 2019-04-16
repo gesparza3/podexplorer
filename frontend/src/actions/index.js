@@ -1,3 +1,4 @@
 import * as podcasts from "./podcasts";
+import * as auth from "./auth";
 
-export {podcasts}
+export {podcasts, auth}

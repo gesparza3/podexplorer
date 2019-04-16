@@ -17,6 +17,10 @@ class Podexplorer extends Component {
     this.setState({title: "", description: ""});
   }
 
+	componentDidMount() {
+    // this.props.fetchPodcasts();
+  }
+
   render() {
     return (
       <div>
@@ -50,7 +54,7 @@ class Podexplorer extends Component {
             <tr key={`podcast_${id}`}>
               <td>{podcast.title}</td>
               <td>{podcast.description}</td>
-              <td><button onClick={() => this.props.deletePodcast(id)}>delete</button></td>
+              {/* <td><button onClick={() => this.props.deletePodcast(id)}>delete</button></td> */}
             </tr>
             ))}
           </tbody>
@@ -70,11 +74,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addPodcast: (title, description) => {
-      dispatch(podcasts.addPodcast(title, description));
+    fetchPodcasts: () => {
+      dispatch(podcasts.fetchPodcasts());
     },
-    deletePodcast: (id) => {
-      dispatch(podcasts.deletePodcast(id));
+    addNote: (title, description) => {
+      return dispatch(podcasts.addPodcast(title, description));
     },
   }
 }
