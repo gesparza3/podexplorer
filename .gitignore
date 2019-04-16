@@ -1,9 +1,5 @@
 /venv
-/podexplorer/podcasts/__pycache__/
-/podexplorer/podcasts/migrations/
-podexplorer/podexplorer/__pycache__/
-podexplorer/db.sqlite3
 /node_modules/
-/podexplorer/podexplorer/__pycache__/
-/podexplorer/frontend/__pycache__/
-/podexplorer/frontend/migrations/
+/backend/api/__pycache__/
+/backend/backend/__pycache__/
+backend/db.sqlite3
