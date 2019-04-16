@@ -1,27 +1,61 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+
+import {podcasts} from "../actions";
+
 
 
 class Podexplorer extends Component {
+  state = {
+    title: "",
+    description: ""
+  }
+
+  submitPodcast = (e) => {
+    e.preventDefault();
+    this.props.addPodcast(this.state.title, this.state.description);
+    this.setState({title: "", description: ""});
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to Podexplorer!</h2>
         <hr />
 
+        <h3>Add new podcast</h3>
+        <form onSubmit={this.submitPodcast}>
+          <p><input type="text"
+              value={this.state.title}
+              placeholder="Enter podcast..."
+              onChange={(e) => this.setState({title: e.target.value})}
+              required /></p>
+          <p><textarea
+                value={this.state.description}
+                placeholder="Enter description..."
+                onChange={(e) => this.setState({description: e.target.value})}
+                required></textarea></p>
+            <p><input type="submit" value="Save Podcast"/></p>
+        </form>
+
         <h3>Podcasts</h3>
         <table>
+          <thead>
+            <th>Title</th>
+            <th>Description</th>
+            <th></th>
+          </thead>
           <tbody>
-            {this.props.podcasts.map(podcasts => (
-              <tr>
-                <td>{podcast.title}</td>
-                <td>{podcast.description}</td>
-                {/* <td><button>edit</button></td> */}
-                {/* <td><button>delete</button></td> */}
-              </tr>
+            {this.props.podcasts.map((podcast, id) => (
+            <tr key={`podcast_${id}`}>
+              <td>{podcast.title}</td>
+              <td>{podcast.description}</td>
+              <td><button onClick={() => this.props.deletePodcast(id)}>delete</button></td>
+            </tr>
             ))}
           </tbody>
         </table>
+
       </div>
     )
   }
@@ -30,14 +64,19 @@ class Podexplorer extends Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.podcasts,
+    podcasts: state.podcasts,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
+    addPodcast: (title, description) => {
+      dispatch(podcasts.addPodcast(title, description));
+    },
+    deletePodcast: (id) => {
+      dispatch(podcasts.deletePodcast(id));
+    },
   }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Podexplorer);
