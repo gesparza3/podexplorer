@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
-import {podcasts} from "../actions";
+import {podcasts, auth} from "../actions";
 
-
-
-class Podexplorer extends Component {
+class AddPodcast extends Component {
   state = {
     title: "",
     description: ""
@@ -17,16 +15,9 @@ class Podexplorer extends Component {
     this.setState({title: "", description: ""});
   }
 
-	componentDidMount() {
-    // this.props.fetchPodcasts();
-  }
-
   render() {
     return (
       <div>
-        <h2>Welcome to Podexplorer!</h2>
-        <hr />
-
         <h3>Add new podcast</h3>
         <form onSubmit={this.submitPodcast}>
           <p><input type="text"
@@ -41,30 +32,10 @@ class Podexplorer extends Component {
                 required></textarea></p>
             <p><input type="submit" value="Save Podcast"/></p>
         </form>
-
-        <h3>Podcasts</h3>
-        <table>
-          <thead>
-            <th>Title</th>
-            <th>Description</th>
-            <th></th>
-          </thead>
-          <tbody>
-            {this.props.podcasts.map((podcast, id) => (
-            <tr key={`podcast_${id}`}>
-              <td>{podcast.title}</td>
-              <td>{podcast.description}</td>
-              {/* <td><button onClick={() => this.props.deletePodcast(id)}>delete</button></td> */}
-            </tr>
-            ))}
-          </tbody>
-        </table>
-
       </div>
     )
   }
 }
-
 
 const mapStateToProps = state => {
   return {
@@ -74,13 +45,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchPodcasts: () => {
-      dispatch(podcasts.fetchPodcasts());
-    },
-    addNote: (title, description) => {
+    addPodcast: (title, description) => {
       return dispatch(podcasts.addPodcast(title, description));
     },
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Podexplorer);
+export default connect(mapStateToProps, mapDispatchToProps)(AddPodcast);

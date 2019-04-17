@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-
-import {Redirect} from "react-router-dom";
-
 import {auth} from "../actions";
+
+import {Link, Redirect} from "react-router-dom";
+
 
 class Login extends Component {
 
@@ -27,7 +27,25 @@ class Login extends Component {
               ))}
             </ul>
           )}
-          {/*KEEP THE OTHER ELEMENTS*/}
+          <p>
+            <label htmlFor="username">Username</label>
+            <input
+              type="text" id="username"
+              onChange={e => this.setState({username: e.target.value})} />
+          </p>
+          <p>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password" id="password"
+              onChange={e => this.setState({password: e.target.value})} />
+          </p>
+          <p>
+            <button type="submit">Login</button>
+          </p>
+
+          <p>
+            Don't have an account? <Link to="/register">Register</Link>
+          </p>
         </fieldset>
       </form>
     )

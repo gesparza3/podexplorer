@@ -8,7 +8,8 @@ import thunk from "redux-thunk";
 import {auth} from "./actions";
 import podexplorer from "./reducers";
 
-import Podexplorer from "./components/Podexplorer";
+import Library from "./components/Library";
+import AddPodcast from "./components/AddPodcast";
 import NotFound from "./components/NotFound";
 import Login from "./components/Login";
 
@@ -36,9 +37,20 @@ class RootContainerComponent extends Component {
   render() {
     let {PrivateRoute} = this;
     return (
+      <>
+      <div>
+      <h2>Podexplorer</h2>
+        <div style={{textAlign: "right"}}>
+          {this.props.user.username} (<a onClick={this.props.logout}>logout</a>)
+        </div>
+        <hr />
+      </div>
+      <>
+
       <BrowserRouter>
         <Switch>
-          <PrivateRoute exact path="/" component={Podexplorer} />
+          <PrivateRoute exact path="/" component={Library} />
+          <PrivateRoute exact path="/add" component={AddPodcast} />
           <Route exact path="/login" component={Login} />
           <Route component={NotFound} />
         </Switch>
