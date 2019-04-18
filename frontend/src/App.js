@@ -8,20 +8,24 @@ import thunk from "redux-thunk";
 import {auth} from "./actions";
 import podexplorer from "./reducers";
 
-import Library from "./components/Library";
-import AddPodcast from "./components/AddPodcast";
+import Podexplorer from "./components/Podexplorer";
 import NotFound from "./components/NotFound";
 import Login from "./components/Login";
+import Library from "./components/Library";
+import AddPodcast from "./components/AddPodcast";
+import Logout from "./components/Logout";
 
 
 let store = createStore(podexplorer, applyMiddleware(thunk));
 
 class RootContainerComponent extends Component {
 
+  // Load the user on page load
   componentDidMount() {
     this.props.loadUser();
   }
 
+  // Directs user to Login if user is unauthenticated
   PrivateRoute = ({component: ChildComponent, ...rest}) => {
     return <Route {...rest} render={props => {
       if (this.props.auth.isLoading) {
@@ -34,24 +38,17 @@ class RootContainerComponent extends Component {
     }} />
   }
 
+  // Router for frontend navigation
   render() {
     let {PrivateRoute} = this;
     return (
-      <>
-      <div>
-      <h2>Podexplorer</h2>
-        <div style={{textAlign: "right"}}>
-          {this.props.user.username} (<a onClick={this.props.logout}>logout</a>)
-        </div>
-        <hr />
-      </div>
-      <>
-
       <BrowserRouter>
         <Switch>
-          <PrivateRoute exact path="/" component={Library} />
-          <PrivateRoute exact path="/add" component={AddPodcast} />
+          <PrivateRoute exact path="/" component={Podexplorer} />
+          <PrivateRoute exact path="/logout" component={Logout} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/add" component={AddPodcast} />
+          <Route exact path="/library" component={Library} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
@@ -59,17 +56,21 @@ class RootContainerComponent extends Component {
   }
 }
 
+// Provide the component properties with authentication from the state
 const mapStateToProps = state => {
   return {
     auth: state.auth,
+    user: state.auth.user,
   }
 }
 
+// Set user properties to current user
 const mapDispatchToProps = dispatch => {
   return {
     loadUser: () => {
       return dispatch(auth.loadUser());
-    }
+    },
+    logout: () => dispatch(auth.logout()),
   }
 }
 

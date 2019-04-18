@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
-import {podcasts, auth} from "../actions";
+// import {podcasts, auth} from "../actions";
+import {podcasts} from "../actions";
 
 class AddPodcast extends Component {
   state = {

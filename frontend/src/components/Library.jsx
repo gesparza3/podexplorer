@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {Route, Switch, BrowserRouter, Redirect} from 'react-router-dom';
 
 import {podcasts, auth} from "../actions";
-
-import AddPodcast from "./AddPodcast";
-
 
 
 class Library extends Component {
@@ -16,7 +12,7 @@ class Library extends Component {
   render() {
     return (
       <div>
-        <h3>Library</h3>
+        <h3>My Library</h3>
         <table>
           <thead>
             <tr>
