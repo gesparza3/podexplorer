@@ -44,11 +44,11 @@ class RootContainerComponent extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <PrivateRoute exact path="/" component={Podexplorer} />
+          {/* <PrivateRoute exact path="/" component={Podexplorer} /> */}
+          <PrivateRoute exact path="/" component={Library} />
           <PrivateRoute exact path="/logout" component={Logout} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/add" component={AddPodcast} />
-          <Route exact path="/library" component={Library} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>

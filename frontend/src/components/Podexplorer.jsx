@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import {auth} from "../actions";
-// import {podcasts, auth} from "../actions";
+import { Container, Navbar, Nav } from 'react-bootstrap';
 
 
 class Podexplorer extends Component {
@@ -16,17 +16,17 @@ class Podexplorer extends Component {
     render() {
         return (
           <>
-            <div class="text-center">
-              <h2>Podexplorer</h2>
-                <div class="row justify-content-md-center">
-                  <nav class="navbar navbar-expand-sm bg-dark justify-content-center">
-                      <Link class="nav-item nav-link" to="add">Add Podcast</Link>
-                      <Link class="nav-item nav-link" to="library">Library</Link>
-                      <a class="nav-item nav-link float-right" href="http://localhost:8000/chat/">Chat</a>
-                      <Link class="nav-item nav-link float-right" to="/logout">Logout</Link>
-                  </nav>
-              </div>
-            </div>
+            <Container className="pb-5">
+              <Navbar variant="dark">
+                <Navbar.Brand href=''><h1>Podexplorer</h1></Navbar.Brand>
+                <Nav className="mr-auto">
+                  <Link class="nav-link" to="">Library</Link>
+                  <Link class="nav-link" to="/add">Add Podcast</Link>
+                  <Nav.Link href="http://localhost:8000/chat/">Chat</Nav.Link>
+                  <Link class="nav-link" to="/logout">Logout</Link>
+                </Nav>
+              </Navbar>
+            </Container>
           </>
         )
     }

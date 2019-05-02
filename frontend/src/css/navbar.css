@@ -1,30 +1,48 @@
-p, ul, li {
-  font-family: sans-serif;
+.navbar-dark {
+    background-color: #4e4e4e;
+    border-color: #AA0000;
+    border-radius: .5em;
 }
-ul.header li {
-  display: inline;
-  list-style-type: none;
-  margin: 0;
+
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-brand:hover,
+.navbar-dark .navbar-brand:focus {
+    color: #FFF;
 }
-ul.header {
-  background-color: #111;
-  padding: 0;
+
+.navbar-dark .navbar-nav > li > a {
+    color: #FFF;
 }
-ul.header li a {
-  color: #FFF;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 20px;
-  display: inline-block;
+
+h1 {
+    color: #C9C9C9;
 }
-.content {
-  background-color: #FFF;
-  padding: 20px;
+
+.navbar-dark .navbar-nav > li > a:hover,
+.navbar-dark .navbar-nav > li > a:focus {
+    background-color: #AA0000;
 }
-.content h2 {
-  padding: 0;
-  margin: 0;
+
+.navbar-dark .navbar-nav > .active > a,
+.navbar-dark .navbar-nav > .active > a:hover,
+.navbar-dark .navbar-nav > .active > a:focus {
+    color: #FFF;
+    background-color: #AA0000;
 }
-.content li {
-  margin-bottom: 10px;
+
+.navbar-dark .navbar-text {
+    color: #FFF;
+}
+
+.navbar-dark .navbar-toggle {
+    border-color: #AA0000;
+}
+
+.navbar-dark .navbar-toggle:hover,
+.navbar-dark .navbar-toggle:focus {
+    background-color: #AA0000;
+}
+
+.navbar-dark .navbar-toggle .icon-bar {
+    background-color: #FFF;
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
 import {podcasts, auth} from "../actions";
+import Podexplorer from "./Podexplorer";
 
 
 class Library extends Component {
@@ -12,7 +13,8 @@ class Library extends Component {
   render() {
     return (
       <div>
-        <h3>My Library</h3>
+        <Podexplorer />
+        <h4>Library</h4>
         <table>
           <thead>
             <tr>

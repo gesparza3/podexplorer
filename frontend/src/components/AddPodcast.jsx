@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 // import {podcasts, auth} from "../actions";
 import {podcasts} from "../actions";
+import Podexplorer from "./Podexplorer";
 
 class AddPodcast extends Component {
   state = {
@@ -19,6 +20,7 @@ class AddPodcast extends Component {
   render() {
     return (
       <div>
+        <Podexplorer />
         <h3>Add new podcast</h3>
         <form onSubmit={this.submitPodcast}>
           <p><input type="text"
