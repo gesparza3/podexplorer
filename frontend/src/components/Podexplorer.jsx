@@ -17,21 +17,13 @@ class Podexplorer extends Component {
         return (
           <>
             <div class="text-center">
-              <h2>Welcome to Podexplorer!</h2>
-                <nav class="navbar navbar-expand-sm bg-dark justify-content-center">
-                    <Link class="nav-item nav-link" to="add">Add Podcast</Link>
-                    <Link class="nav-item nav-link" to="library">Library</Link>
-                    <Link class="nav-item nav-link float-right"to="/logout">Logout</Link>
-                </nav>
-              <hr />
-              <div class="row pt-5">
-                <div class="col text-center">
-                  <button type="button" class="btn btn-dark btn-lg"><Link to="add">Add Podcast</Link></button>
-                </div>
-                <div class="col text-center">
-                  <button type="button" class="btn btn-dark btn-lg"><Link to="library">Library</Link></button>
-                </div>
-
+              <h2>Podexplorer</h2>
+                <div class="row justify-content-md-center">
+                  <nav class="navbar navbar-expand-sm bg-dark justify-content-center">
+                      <Link class="nav-item nav-link" to="add">Add Podcast</Link>
+                      <Link class="nav-item nav-link" to="library">Library</Link>
+                      <Link class="nav-item nav-link float-right"to="/logout">Logout</Link>
+                  </nav>
               </div>
             </div>
           </>

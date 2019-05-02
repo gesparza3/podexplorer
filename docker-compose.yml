@@ -19,3 +19,11 @@ services:
     ports:
       - '3000:3000'
     command: [ "npm", "start" ]
+
+  redis:
+    container_name: redis
+    image: redis:2.8
+    expose:
+      - '6379'
+    ports:
+      - '6379:6379'

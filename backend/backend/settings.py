@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'knox',
-    'api'
+    'api',
+    'channels',
+    'chat'
 ]
 
 REST_FRAMEWORK = {
@@ -79,6 +81,18 @@ TEMPLATES = [
         },
     },
 ]
+
+
+# Channels
+ASGI_APPLICATION = "backend.routing.application"
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('redis', 6379)],
+        },
+    },
+}
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
