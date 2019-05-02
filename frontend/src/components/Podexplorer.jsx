@@ -20,10 +20,10 @@ class Podexplorer extends Component {
               <Navbar variant="dark">
                 <Navbar.Brand href=''><h1>Podexplorer</h1></Navbar.Brand>
                 <Nav className="mr-auto">
-                  <Link class="nav-link" to="">Library</Link>
-                  <Link class="nav-link" to="/add">Add Podcast</Link>
+                  <Link className="nav-link" to="">Library</Link>
+                  <Link className="nav-link" to="/add">Add Podcast</Link>
                   <Nav.Link href="http://localhost:8000/chat/">Chat</Nav.Link>
-                  <Link class="nav-link" to="/logout">Logout</Link>
+                  <Link className="nav-link" to="/logout">Logout</Link>
                 </Nav>
               </Navbar>
             </Container>

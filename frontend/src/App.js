@@ -8,7 +8,6 @@ import thunk from "redux-thunk";
 import {auth} from "./actions";
 import podexplorer from "./reducers";
 
-import Podexplorer from "./components/Podexplorer";
 import NotFound from "./components/NotFound";
 import Login from "./components/Login";
 import Library from "./components/Library";
