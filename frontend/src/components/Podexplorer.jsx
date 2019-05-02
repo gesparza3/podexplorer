@@ -22,7 +22,8 @@ class Podexplorer extends Component {
                   <nav class="navbar navbar-expand-sm bg-dark justify-content-center">
                       <Link class="nav-item nav-link" to="add">Add Podcast</Link>
                       <Link class="nav-item nav-link" to="library">Library</Link>
-                      <Link class="nav-item nav-link float-right"to="/logout">Logout</Link>
+                      <a class="nav-item nav-link float-right" href="http://localhost:8000/chat/">Chat</a>
+                      <Link class="nav-item nav-link float-right" to="/logout">Logout</Link>
                   </nav>
               </div>
             </div>
