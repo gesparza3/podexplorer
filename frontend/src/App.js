@@ -10,6 +10,7 @@ import podexplorer from "./reducers";
 
 import NotFound from "./components/NotFound";
 import Login from "./components/Login";
+import Register from "./components/Register";
 import Library from "./components/Library";
 import AddPodcast from "./components/AddPodcast";
 import Logout from "./components/Logout";
@@ -46,6 +47,7 @@ class RootContainerComponent extends Component {
           <PrivateRoute exact path="/" component={Library} />
           <PrivateRoute exact path="/add" component={AddPodcast} />
           <PrivateRoute exact path="/logout" component={Logout} />
+          <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Route component={NotFound} />
         </Switch>

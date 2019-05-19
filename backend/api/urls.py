@@ -10,7 +10,7 @@ router.register('api/podcasts', PodcastViewSet, base_name='podcasts')
 urlpatterns = [
     path("", include(router.urls)),
     path('api/auth/', include('knox.urls')),
-    # path('api/register/', RegistrationAPI.as_view()),
+    path('api/register/', RegistrationAPI.as_view()),
     path('api/login/', LoginAPI.as_view()),
     path('api/user/', UserAPI.as_view()),
 ]
