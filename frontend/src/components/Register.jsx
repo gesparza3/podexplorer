@@ -7,18 +7,20 @@ import {auth} from "../actions";
 
 class Register extends Component {
 
+  // Set initial state values
   state = {
     username: "",
     password: "",
   }
 
+  // Submit new user information
   onSubmit = e => {
     e.preventDefault();
     this.props.register(this.state.username, this.state.password);
-    console.log("Ok!")
   }
 
   render() {
+    // Redirect to homepage if authenticated
     if (this.props.isAuthenticated) {
       return <Redirect to="/" />
     }
@@ -58,6 +60,7 @@ class Register extends Component {
   }
 }
 
+// Retrieve errors from API
 const mapStateToProps = state => {
   let errors = [];
   if (state.auth.errors) {

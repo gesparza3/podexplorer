@@ -6,10 +6,12 @@ import Podexplorer from "./Podexplorer";
 
 
 class Library extends Component {
-	componentDidMount() {
+  // Fetch all user podcasts when component loads
+  componentDidMount() {
     this.props.fetchPodcasts();
   }
 
+  // Generate table of Podcasts stored in user's library
   render() {
     return (
       <div>

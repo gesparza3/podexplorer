@@ -1,9 +1,11 @@
+// Report state of User
 export const loadUser = () => {
   return (dispatch, getState) => {
     dispatch({type: "USER_LOADING"});
 
     const token = getState().auth.token;
-
+   
+    // Set headers for request
     let headers = {
       "Content-Type": "application/json",
     };
@@ -23,9 +25,11 @@ export const loadUser = () => {
         }
       })
       .then(res => {
+	// If valid user
         if (res.status === 200) {
           dispatch({type: 'USER_LOADED', user: res.data });
           return res.data;
+        // Report unauthenticated user
         } else if (res.status >= 400 && res.status < 500) {
           dispatch({type: "AUTHENTICATION_ERROR", data: res.data});
           throw res.data;
@@ -34,6 +38,7 @@ export const loadUser = () => {
   }
 }
 
+// Report state of login
 export const login = (username, password) => {
   return (dispatch, getState) => {
     let headers = {"content-type": "application/json"};
@@ -52,12 +57,15 @@ export const login = (username, password) => {
       })
       .then(res => {
         if (res.status === 200) {
+	  // Report successful login
           dispatch({type: 'LOGIN_SUCCESSFUL', data: res.data });
           return res.data;
         } else if (res.status === 403 || res.status === 401) {
+	  // Report unauthenticated user
           dispatch({type: "AUTHENTICATION_ERROR", data: res.data});
           throw res.data;
         } else {
+	  // Report failed login
           dispatch({type: "LOGIN_FAILED", data: res.data});
           throw res.data;
         }
@@ -65,6 +73,7 @@ export const login = (username, password) => {
   }
 }
 
+// Report state of logout
 export const logout = () => {
   return (dispatch, getState) => {
     let headers = {"Content-Type": "application/json"};
@@ -84,9 +93,11 @@ export const logout = () => {
       })
       .then(res => {
         if (res.status === 204) {
+	  // Report successful logout
           dispatch({type: 'LOGOUT_SUCCESSFUL'});
           return res.data;
         } else if (res.status === 403 || res.status === 401) {
+	  // Report authentication issue
           dispatch({type: "AUTHENTICATION_ERROR", data: res.data});
           throw res.data;
         }
@@ -112,12 +123,15 @@ export const register = (username, password) => {
       })
       .then(res => {
         if (res.status === 200) {
+	  // Report successful registration
           dispatch({type: 'REGISTRATION_SUCCESSFUL', data: res.data });
           return res.data;
         } else if (res.status === 403 || res.status === 401 || res.status === 400) {
+	  // Report authentication error
           dispatch({type: "AUTHENTICATION_ERROR", data: res.data});
           throw res.data;
         } else {
+	  // Report failed registration
           dispatch({type: "REGISTRATION_FAILED", data: res.data});
           throw res.data;
         }

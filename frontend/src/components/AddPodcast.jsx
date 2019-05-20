@@ -6,12 +6,14 @@ import {podcasts} from "../actions";
 import Podexplorer from "./Podexplorer";
 
 class AddPodcast extends Component {
+  // Set inital state values to empty
   state = {
     title: "",
     category: "",
     description: ""
   }
 
+  // Submit user values to API and reset to empty
   submitPodcast = (e) => {
     e.preventDefault();
     this.props.addPodcast(this.state.title, this.state.category, this.state.description);

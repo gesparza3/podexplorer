@@ -9,10 +9,7 @@ import { Container, Navbar, Nav } from 'react-bootstrap';
 
 class Podexplorer extends Component {
 
-    // componentDidMount() {
-    //     this.props.fetchPodcasts();
-    // }
-
+    // Provide navbar for website
     render() {
         return (
           <>
@@ -40,11 +37,4 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        logout: () => dispatch(auth.logout()),
-    }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Podexplorer);
+export default connect(mapStateToProps)(Podexplorer);

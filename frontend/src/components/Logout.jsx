@@ -5,6 +5,7 @@ import {auth} from "../actions";
 
 class Logout extends Component {
 
+  // Verify user wants to Logout
   render() {
     return (
       <div>

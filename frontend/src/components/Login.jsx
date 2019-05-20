@@ -4,15 +4,16 @@ import {auth} from "../actions";
 
 import {Link, Redirect} from "react-router-dom";
 
-
 class Login extends Component {
 
+  // Submit login info
   onSubmit = e => {
     e.preventDefault();
     this.props.login(this.state.username, this.state.password);
   }
 
   render() {
+    // Redirect to hompage on successful login
     if (this.props.isAuthenticated) {
       return <Redirect to="/" />
     }
@@ -52,6 +53,7 @@ class Login extends Component {
   }
 }
 
+// Retrieve errors from API
 const mapStateToProps = state => {
   let errors = [];
   if (state.auth.errors) {
