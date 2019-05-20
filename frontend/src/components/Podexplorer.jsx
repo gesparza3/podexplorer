@@ -22,7 +22,7 @@ class Podexplorer extends Component {
                 <Nav className="mr-auto">
                   <Link className="nav-link" to="">Library</Link>
                   <Link className="nav-link" to="/add">Add Podcast</Link>
-                  <Nav.Link href="http://localhost:8000/chat/">Chat</Nav.Link>
+                  <Nav.Link href="http://174.129.175.237:8000/chat/">Chat</Nav.Link>
                   <Link className="nav-link" to="/logout">Logout</Link>
                 </Nav>
               </Navbar>

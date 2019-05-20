@@ -19,6 +19,7 @@ class Library extends Component {
           <thead>
             <tr>
               <th>Title</th>
+              <th>Category</th>
               <th>Description</th>
               <th></th>
             </tr>
@@ -27,6 +28,7 @@ class Library extends Component {
             {this.props.podcasts.map((podcast, id) => (
             <tr key={`podcast_${id}`}>
               <td>{podcast.title}</td>
+              <td>{podcast.category}</td>
               <td>{podcast.description}</td>
               <td><button onClick={() => this.props.deletePodcast(id)}>delete</button></td>
             </tr>

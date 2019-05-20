@@ -6,8 +6,8 @@ WORKDIR /usr/src/app/
 
 # Install dependencies
 COPY package.json /usr/src/app/
-RUN npm install --silent
-
 ADD . /usr/src/app/
+RUN rm -rf node_modules/
+RUN npm install
 
 EXPOSE 3000

@@ -18,7 +18,8 @@ services:
       - ./frontend:/usr/src/app/
     ports:
       - '3000:3000'
-    command: [ "npm", "start" ]
+        #o    command: [ "npm", "start" ]
+    command: bash -c "npm install && npm start"
 
   redis:
     container_name: redis

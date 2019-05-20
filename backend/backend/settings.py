@@ -25,7 +25,7 @@ SECRET_KEY = 'kh+re4%*xorje08@qlit^-=cf8%5qy8%l_ul(rlol91$dw0u5j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -82,6 +82,9 @@ TEMPLATES = [
     },
 ]
 
+CORS_ORIGIN_WHITELIST = (
+    'localhost:3000/'
+)
 
 # Channels
 ASGI_APPLICATION = "backend.routing.application"

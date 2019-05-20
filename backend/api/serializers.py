@@ -7,7 +7,7 @@ from .models import Podcast
 class PodcastSerializer(serializers.ModelSerializer):
     class Meta:
         model = Podcast
-        fields = ('id', 'title', 'description')
+        fields = ('id', 'title', 'category', 'description')
 
 class CreateUserSerializer(serializers.ModelSerializer):
     class Meta:

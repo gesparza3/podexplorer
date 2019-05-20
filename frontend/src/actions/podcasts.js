@@ -7,7 +7,7 @@ export const fetchPodcasts = () => {
       headers["Authorization"] = `Token ${token}`;
     }
 
-    return fetch("http://localhost:8000/api/podcasts/", {headers, })
+    return fetch("http://174.129.175.237:8000/api/podcasts/", {headers, })
       .then(res => {
         if (res.status < 500) {
           return res.json().then(data => {
@@ -29,7 +29,7 @@ export const fetchPodcasts = () => {
   }
 }
 
-export const addPodcast = (title, description) => {
+export const addPodcast = (title, category, description) => {
   return (dispatch, getState) => {
     let headers = {"Content-Type": "application/json"};
     let {token} = getState().auth;
@@ -38,8 +38,8 @@ export const addPodcast = (title, description) => {
       headers["Authorization"] = `Token ${token}`;
     }
 
-    let add_body = JSON.stringify({title, description });
-    return fetch("http://localhost:8000/api/podcasts/", {headers, method: "POST", body: add_body})
+    let add_body = JSON.stringify({title, category, description });
+    return fetch("http://174.129.175.237:8000/api/podcasts/", {headers, method: "POST", body: add_body})
       .then(res => {
         if (res.status < 500) {
           return res.json().then(data => {
@@ -73,7 +73,7 @@ export const deletePodcast = index => {
 
     let podcastId = getState().podcasts[index].id;
 
-    return fetch(`http://localhost:8000/api/podcasts/${podcastId}/`, {headers, method: "DELETE"})
+    return fetch(`http://174.129.175.237:8000/api/podcasts/${podcastId}/`, {headers, method: "DELETE"})
       .then(res => {
         if (res.status === 204) {
           return {status: res.status, data: {}};

@@ -8,13 +8,14 @@ import Podexplorer from "./Podexplorer";
 class AddPodcast extends Component {
   state = {
     title: "",
+    category: "",
     description: ""
   }
 
   submitPodcast = (e) => {
     e.preventDefault();
-    this.props.addPodcast(this.state.title, this.state.description);
-    this.setState({title: "", description: ""});
+    this.props.addPodcast(this.state.title, this.state.category, this.state.description);
+    this.setState({title: "", category: "", description: ""});
   }
 
   render() {
@@ -28,6 +29,11 @@ class AddPodcast extends Component {
               placeholder="Enter podcast..."
               onChange={(e) => this.setState({title: e.target.value})}
               required /></p>
+          <p><textarea
+                value={this.state.category}
+                placeholder="Enter category..."
+                onChange={(e) => this.setState({category: e.target.value})}
+                required></textarea></p>
           <p><textarea
                 value={this.state.description}
                 placeholder="Enter description..."
@@ -48,8 +54,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addPodcast: (title, description) => {
-      return dispatch(podcasts.addPodcast(title, description));
+    addPodcast: (title, category, description) => {
+      return dispatch(podcasts.addPodcast(title, category, description));
     },
   }
 }
